@@ -19,6 +19,7 @@ public:
 	std::string getMatrixToString();
 	int getEdgeCost(int row, int column);
 	int getCitiesCount();
-
+	void setCitiesCount(int count);
+	void setEdgeCost(int cost, int beginning, int destination);
 };
 

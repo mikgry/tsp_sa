@@ -4,8 +4,7 @@
 #include <vector>
 class SimulatedAnnealing
 {
-	std::vector< int > the_best_solution;
-	int min_cost;
+	
 
 	int countCost(std::vector<int> path);
 	TravelingSalesmanProblem& tsp;
@@ -14,8 +13,12 @@ public:
 	SimulatedAnnealing(TravelingSalesmanProblem& tsp);
 	~SimulatedAnnealing();
 
-	std::string getSolutionToString();
+	std::string getSolutionToString(std::vector<int> path, int cost);
 	void swapTwoRandomCities(std::vector<int>& path);
 	std::vector <int> generateRandomSolution();
 	void startAlgorithm();
+	void startAlgorithmStepByStep();
+
+	std::vector< int > the_best_solution;
+	int min_cost;
 };

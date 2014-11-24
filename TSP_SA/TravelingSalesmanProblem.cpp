@@ -13,6 +13,7 @@ TravelingSalesmanProblem::TravelingSalesmanProblem()
 TravelingSalesmanProblem::~TravelingSalesmanProblem()
 {
 	cities_matrix->clear();
+	delete cities_matrix;
 }
 
 bool TravelingSalesmanProblem::readCitiesDataFromFileToCitiesMatrix(std::string file_path)
@@ -102,4 +103,21 @@ int TravelingSalesmanProblem::getCitiesCount()
 	return cities_matrix->size();
 }
 
+void TravelingSalesmanProblem::setCitiesCount(int count)
+{
+	cities_matrix->clear();
+	for (int i = 0; i < count; ++i)
+	{
+		cities_matrix->push_back(new std::vector<int>);
+		for (int j = 0; j < count; ++j)
+		{
+			cities_matrix->at(i)->push_back(9999);
+		}
+	}
+}
+
+void TravelingSalesmanProblem::setEdgeCost(int cost, int beginning, int destination)
+{
+	cities_matrix->at(beginning)->operator[](destination) = cost;
+}
 
